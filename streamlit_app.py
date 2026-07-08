@@ -66,15 +66,14 @@ if st.button("Predict Rent"):
         "Point of Contact": [contact]
     })
 
-try:
-    encoded = e.transform(new_house)
-    scaled = s.transform(encoded)
+    try:
+        encoded = e.transform(new_house)
+        scaled = s.transform(encoded)
 
-    prediction = m.predict(scaled)[0]
+        prediction = m.predict(scaled)[0]
 
-    st.success(f"🏠 Predicted Monthly Rent: ₹ {prediction:,.0f}")
-    st.info("💡 This prediction is based on the trained Machine Learning model.")
+        st.success(f"🏠 Predicted Monthly Rent: ₹ {prediction:,.0f}")
+        st.info("💡 This prediction is based on the trained Machine Learning model.")
 
-except Exception as e:
-    st.error(f"Prediction Error: {e}")
-    
+    except Exception as ex:
+        st.error(f"Prediction Error: {ex}")
